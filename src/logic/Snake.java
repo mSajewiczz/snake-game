@@ -2,24 +2,4 @@ package logic;
 
 public class Snake {
 
-/*
-    INSTRUKCJA I PRZEMYSLENIA JAK TO OGARNAC :)
-    - x,y zmienne dynamiczne, które cały czas działają
-    - sterowanie strzałkami, jakiś listener na key
-    - Snake generuje w tym samym miejscu, Food w róznych na Boardzie
-    - Board plansza np 600x400 px w oknie
-    - W momencie, gdy Snake jest 1 elementem ciała - głową na Food to:
-        1. food znika - pojawia się w nowym losowym miejscu, ale nie tam gdzie snake ma swoje ciało,
-                        gdzieś indziej (informacja o pozycji całego snake musi być ogólnie znana).
-        2. snake dostaje kwadracik od tyłu, wydłuza się o 1.
-    - Gdy snake dotknie krawędzi board - GameOverScreen się wyświetla i pokazuje ile pkt zdobyl gracz
-      mozna to zrobic, ze krawedz ma swoje kordy i jak snake tam wjedzie to ende
-    - snake nie moze sie obrocic jakby we wlasne cialo glowa
-    - mozna zrobic ze kazdy klocek glowa tez to jakby obiekt i kazdy kolejny obiekt dziedziczy
-    ponim jego pozycje x,y zeby isc ladnie w gore, dół, prosto
-    - mozna podzielic calego boarda na siatke taka, ze widzisz kratki gdzie sie snake znajduje
-
- */
-
-
 }
