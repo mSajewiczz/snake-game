@@ -1,6 +1,7 @@
 package ui;
 
 import logic.Board;
+import logic.Food;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,6 @@ public class Window extends JFrame {
         setTitle("🐍 Java Snake Game 🐍");
         setSize(1920, 1080);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 
         JLabel gameTitle = new JLabel("Welcome in the Snake Game! 🐍");
         gameTitle.setFont(new Font("Sans-Serif", Font.BOLD, 28));
@@ -32,6 +32,9 @@ public class Window extends JFrame {
         gameBoard.setBounds(10, 118, 800, 700);
         gameBoard.setVisible(false);
 
+        Food food = new Food();
+        gameBoard.add(food);
+
         add(gameStart);
         add(gameTitle);
         setLayout(null);
@@ -45,6 +48,9 @@ public class Window extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 gameStartInfo.setText("You've started the game!");
                 gameBoard.setVisible(true);
+                System.out.println("x: " + food.getX() + " y: " + food.getY());
+                food.respawn();
+
             }
         });
 
@@ -53,7 +59,6 @@ public class Window extends JFrame {
            public void actionPerformed(ActionEvent e) {
                gameBoard.setVisible(false);
                gameStartInfo.setText("");
-
            }
         });
     }
