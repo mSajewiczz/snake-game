@@ -13,6 +13,7 @@ public class Window extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
+        setResizable(false);
 
         JLabel title = new JLabel("Snake Game 🐍", SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 24));

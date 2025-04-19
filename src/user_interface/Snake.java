@@ -7,14 +7,13 @@ import java.awt.*;
 
 public class Snake {
 
-    public Snake() {
-    }
-
-
-    protected void paintSnake() {
+    public void paintSnake(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
         SnakeHead snakeHead = new SnakeHead();
         SnakeSegment snakeSegment = new SnakeSegment();
 
+        snakeHead.paintSnakeHeadSetter(g);
+        snakeSegment.paintSnakeSegmentSetter(g);
 
     }
 }

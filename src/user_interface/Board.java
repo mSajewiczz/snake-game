@@ -16,16 +16,13 @@ public class Board extends JPanel{
 
     Food food = new Food();
     Snake snake = new Snake();
-    SnakeHead snakeHead = new SnakeHead();
-    SnakeSegment snakeSegment = new SnakeSegment();
 
-    //here you're using your custom food.paintFood() method from food class, that's drawing food object
+    //here you're using your custom food.paintFood() method from food class, that's drawing food object (not only for food)
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         food.paintFood(g);
-        snakeHead.paintSnakeHead(g);
-        snakeSegment.paintSnakeSegment(g);
+        snake.paintSnake(g);
     }
 
 
