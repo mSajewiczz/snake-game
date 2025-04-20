@@ -4,8 +4,13 @@ import java.awt.*;
 
 public class SnakeHead {
 
-    private int snakeHeadX = 20;
+    private int snakeHeadX = 0;
     private int snakeHeadY = 0;
+
+    public SnakeHead(int x, int y) {
+        snakeHeadX = x;
+        snakeHeadY = y;
+    }
 
     protected void paintSnakeHead(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
