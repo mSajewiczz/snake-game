@@ -5,20 +5,30 @@ import logic.SnakeSegment;
 
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.Timer;
 
 public class Board extends JPanel{
+
+    private Timer timer;
 
     public Board() {
         //constructor that's responsible only for displaying the board JPanel
         setPreferredSize(new Dimension(600, 600));
         setBackground(Color.RED);
         snake.startGame();
+        appTimer();
+    }
+
+    public void appTimer () {
+        timer = new Timer(1000, e -> {
+            snake.move();
+            repaint();
+        });
+        timer.start();
     }
 
     Food food = new Food();
     Snake snake = new Snake();
-
-
 
     //here you're using your custom food.paintFood() method from food class, that's drawing food object (not only for food)
     @Override
