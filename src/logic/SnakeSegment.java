@@ -21,4 +21,9 @@ public class SnakeSegment {
     public void paintSnakeSegmentSetter(Graphics g) {
         paintSnakeSegment(g);
     }
+
+    @Override
+    public String toString() {
+        return "SnakeSegment{x=" + snakeSegmentX + ", y=" + snakeSegmentY + "}";
+    }
 }
