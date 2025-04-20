@@ -26,4 +26,6 @@ public class Board extends JPanel{
     }
 
 
+    //board is listening for a click of arrow from keyboard -> then invoke the function of move() that is in snake class
+
 }
