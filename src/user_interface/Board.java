@@ -12,10 +12,13 @@ public class Board extends JPanel{
         //constructor that's responsible only for displaying the board JPanel
         setPreferredSize(new Dimension(600, 600));
         setBackground(Color.RED);
+        snake.startGame();
     }
 
     Food food = new Food();
     Snake snake = new Snake();
+
+
 
     //here you're using your custom food.paintFood() method from food class, that's drawing food object (not only for food)
     @Override
