@@ -41,9 +41,17 @@ public class Snake {
     public void move() {
         System.out.println("move were invoked!");
 
-       for(int i = 0; i < snakeSegments.size(); i++) {
-           System.out.println(snakeSegments.get(i).getSnakeSegmentX() + " " +snakeSegments.get(i).getSnakeSegmentY());
+        //test version of moving - just add 20px in x cordinate
+    int i = 0;
+
+       for(i = 0; i < snakeSegments.size(); i++) {
+//        snakeSegments.get(i).getSnakeSegmentX();
+//        snakeSegments.get(i).getSnakeSegmentY();
+
+           snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i).getSnakeSegmentX()+20);
+//           snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i).getSnakeSegmentY()+20);
        }
+
 
     }
 

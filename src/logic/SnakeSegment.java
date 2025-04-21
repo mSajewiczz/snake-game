@@ -28,10 +28,18 @@ public class SnakeSegment {
     }
 
     public int getSnakeSegmentX() {
-        return snakeSegmentX;
+        return this.snakeSegmentX;
     }
 
     public int getSnakeSegmentY() {
-        return snakeSegmentY;
+        return this.snakeSegmentY;
+    }
+
+    public void setSnakeSegmentY(int snakeSegmentY) {
+        this.snakeSegmentY = snakeSegmentY;
+    }
+
+    public void setSnakeSegmentX(int snakeSegmentX) {
+        this.snakeSegmentX = snakeSegmentX;
     }
 }
