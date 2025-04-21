@@ -6,8 +6,10 @@ import logic.SnakeSegment;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.Timer;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Board extends JPanel{
+public class Board extends JPanel implements KeyListener{
 
     private Timer timer;
 
@@ -17,15 +19,44 @@ public class Board extends JPanel{
         setBackground(Color.RED);
         snake.startGame();
         appTimer();
+        setFocusable(true);
+        addKeyListener(this);
     }
 
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
+            System.out.println("up");
+        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            System.out.println("down");
+        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            System.out.println("right");
+        } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            System.out.println("left");
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+
     public void appTimer () {
-        timer = new Timer(1000, e -> {
+        timer = new Timer(200, e -> {
             snake.move();
             repaint();
         });
         timer.start();
     }
+
+
 
     Food food = new Food();
     Snake snake = new Snake();

@@ -39,8 +39,7 @@ public class Snake {
     }
 
     public void move() {
-        System.out.println("move were invoked!");
-
+//        System.out.println("move were invoked!");
         //test version of moving - just add 20px in x cordinate
     int i = 0;
 
