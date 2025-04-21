@@ -45,11 +45,8 @@ public class Snake {
     int i = 0;
 
        for(i = 0; i < snakeSegments.size(); i++) {
-//        snakeSegments.get(i).getSnakeSegmentX();
-//        snakeSegments.get(i).getSnakeSegmentY();
-
+           snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX()+10);
            snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i).getSnakeSegmentX()+20);
-//           snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i).getSnakeSegmentY()+20);
        }
 
 

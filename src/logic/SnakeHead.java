@@ -22,4 +22,20 @@ public class SnakeHead {
     public void paintSnakeHeadSetter(Graphics g) {
         paintSnakeHead(g);
     }
+
+    public int getSnakeHeadX() {
+        return snakeHeadX;
+    }
+
+    public void setSnakeHeadX(int snakeHeadX) {
+        this.snakeHeadX = snakeHeadX;
+    }
+
+    public int getSnakeHeadY() {
+        return snakeHeadY;
+    }
+
+    public void setSnakeHeadY(int snakeHeadY) {
+        this.snakeHeadY = snakeHeadY;
+    }
 }
