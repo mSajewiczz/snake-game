@@ -40,6 +40,11 @@ public class Snake {
 
     public void move() {
         System.out.println("move were invoked!");
+
+       for(int i = 0; i < snakeSegments.size(); i++) {
+           System.out.println(snakeSegments.get(i).getSnakeSegmentX() + " " +snakeSegments.get(i).getSnakeSegmentY());
+       }
+
     }
 
     public void grow() {

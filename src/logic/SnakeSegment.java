@@ -4,8 +4,8 @@ import java.awt.*;
 
 public class SnakeSegment {
 
-    int snakeSegmentX = 0;
-    int snakeSegmentY = 0;
+    private int snakeSegmentX = 0;
+    private int snakeSegmentY = 0;
 
     public SnakeSegment(int x, int y) {
         snakeSegmentX = x;
@@ -25,5 +25,13 @@ public class SnakeSegment {
     @Override
     public String toString() {
         return "SnakeSegment{x=" + snakeSegmentX + ", y=" + snakeSegmentY + "}";
+    }
+
+    public int getSnakeSegmentX() {
+        return snakeSegmentX;
+    }
+
+    public int getSnakeSegmentY() {
+        return snakeSegmentY;
     }
 }
