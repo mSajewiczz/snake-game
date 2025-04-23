@@ -25,7 +25,7 @@ public class Snake {
             snakeSegments.add(new SnakeSegment(num, 0));
             num+=20;
         }
-        move();
+        move('m');
     }
 
     public void paintSnake(Graphics g) {
@@ -38,20 +38,55 @@ public class Snake {
         }
     }
 
-    public void move() {
+    private int i = 0;
+
+    public void move(char choice) {
 //        System.out.println("move were invoked!");
         //test version of moving - just add 20px in x cordinate
-    int i = 0;
+        if (i == snakeSegments.size()) {
+            i = 0;
+        }
 
-       for(i = 0; i < snakeSegments.size(); i++) {
-           snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX()+10);
-           snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i).getSnakeSegmentX()+20);
-       }
+        if (choice == 'm') {
+            //this way is only for tests of moving
+//            snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX()+10);
+//            snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i).getSnakeSegmentX()+20);
+            //exact way of doing that method
+            snakeSegments.get(i).setSnakeSegmentX(snakeHead.getSnakeHeadX());
+            snakeSegments.get(i).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+            snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() + 20);
+        } else if (choice == 'd') {
+            if (i == 1) {
+                snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() + 20);
 
+                snakeSegments.get(i).setSnakeSegmentX(snakeHead.getSnakeHeadX());
+                snakeSegments.get(i).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+            } else {
+                snakeSegments.get(i).setSnakeSegmentX(snakeHead.getSnakeHeadX());
+                snakeSegments.get(i).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+            }
+            i += 1;
 
+//        else if(choice == 'u') {
+//            for(i = 0; i < snakeSegments.size(); i++) {
+//                snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY()+10);
+//                snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i).getSnakeSegmentY()+20);
+//            }
+//        } else if(choice == 'd') {
+//            for(i = 0; i < snakeSegments.size(); i++) {
+//                snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY()-10);
+//                snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i).getSnakeSegmentY()-20);
+//            }
+//        } else if(choice == 'r') {
+//            for(i = 0; i < snakeSegments.size(); i++) {
+//                snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY()-10);
+//                snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i).getSnakeSegmentY()-20);
+//            }
+//        }
+        }
     }
 
-    public void grow() {
+    public void grow () {
 
     }
 }
