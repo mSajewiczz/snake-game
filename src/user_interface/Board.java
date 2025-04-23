@@ -27,7 +27,7 @@ public class Board extends JPanel implements KeyListener{
     public void keyPressed(KeyEvent e) {
 
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            System.out.println("up up");
+            System.out.println("up");
             snake.move('u');
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             System.out.println("down");
