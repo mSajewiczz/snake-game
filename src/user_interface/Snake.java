@@ -14,14 +14,16 @@ public class Snake {
     SnakeSegment snakeSegment;
 
     public void startGame() {
-        snakeHead = new SnakeHead(40, 0);
+        snakeHead = new SnakeHead(60, 0);
 
         int num = 0;
 
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < 3; i++){
             snakeSegments.add(new SnakeSegment(num, 0));
             num+=20;
         }
+
+        System.out.println("snakeSegments.size() = " + snakeSegments.size());
 
         move('m');
     }
@@ -36,18 +38,22 @@ public class Snake {
         }
     }
 
-    private int i;
+
+
 
     public void move(char choice) {
         if(choice == 'm') {
-            for(i = snakeSegments.size()+1; i >= 0; i--) {
+            for(int i = snakeSegments.size(); i >= 0; i--) {
+
                 if(i == snakeSegments.size()) {
-                    snakeSegments.get(i).setSnakeSegmentX(snakeHead.getSnakeHeadX());
+                  snakeSegments.get(i-1).setSnakeSegmentX(snakeHead.getSnakeHeadX()); //fucking 1
                     snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() + 20);
-                } else {
-                    snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i-1).getSnakeSegmentX());
                 }
-                System.out.println(i);
+                    //input with fucking 1 number
+                    snakeSegments.get(i-1).setSnakeSegmentX(snakeSegments.get(i).getSnakeSegmentX());
+//                    snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(1).getSnakeSegmentX() + 20);
+                    System.out.println("test");
+
             }
         }
     }
