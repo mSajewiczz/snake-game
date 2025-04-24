@@ -61,6 +61,22 @@ public class Snake {
                 snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
                 snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
                 snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() + 20);
+            } else if(direction.equals("up")) {
+                for (int i = snakeSegments.size() - 1; i > 0; i--) {
+                    snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
+                    snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
+                }
+                snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
+                snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+                snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() - 20);
+            } else if(direction.equals("left")) {
+                for (int i = snakeSegments.size() - 1; i > 0; i--) {
+                    snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
+                    snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
+                }
+                snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
+                snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+                snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() - 20);
             }
         }
     }
