@@ -17,9 +17,9 @@ public class Snake {
     private int snakeHeadPositionY = 0;
 
     public void startGame() {
-        snakeHead = new SnakeHead(80, 0);
+        snakeHead = new SnakeHead(60, 0);
 
-        int num = 20;
+        int num = 0;
 
         for(int i = 0; i < 3; i++){
             snakeSegments.add(new SnakeSegment(num, 0));
@@ -62,10 +62,12 @@ public class Snake {
                     snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
                     snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
                 }
+
                 snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
                 snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
 
                 snakeHeadPositionY = snakeHead.getSnakeHeadY() + 20;
+
 
                 snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() + 20);
                 System.out.println("X: " + snakeHeadPositionX);
@@ -105,6 +107,22 @@ public class Snake {
 
     public void setDirection(String direction) {
         this.direction = direction;
+    }
+
+    public int getSnakeHeadPositionX() {
+        return snakeHeadPositionX;
+    }
+
+    public void setSnakeHeadPositionX(int snakeHeadPositionX) {
+        this.snakeHeadPositionX = snakeHeadPositionX;
+    }
+
+    public int getSnakeHeadPositionY() {
+        return snakeHeadPositionY;
+    }
+
+    public void setSnakeHeadPositionY(int snakeHeadPositionY) {
+        this.snakeHeadPositionY = snakeHeadPositionY;
     }
 }
 
