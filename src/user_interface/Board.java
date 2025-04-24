@@ -53,7 +53,7 @@ public class Board extends JPanel implements KeyListener{
 
 
     public void appTimer () {
-        timer = new Timer(1000, e -> {
+        timer = new Timer(100, e -> {
             snake.move();
 
             if(snake.getSnakeHeadPositionX() == food.getX() && snake.getSnakeHeadPositionY() == food.getY()) {
