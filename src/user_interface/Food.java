@@ -18,7 +18,13 @@ public class Food {
 
     protected void paintFood(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
+        //you need to generate number between 0 and 600
         g2.setColor(Color.GREEN);
-        g2.fillOval(x, y, 20, 20);
+        if((x / 20 != 0 && x % 2 == 0) && (y / 20 != 0 && y % 2 == 0)) {
+            g2.fillRect(x, y, 20, 20);
+            System.out.println("FOOD x: " + x + ", FOOD y: " + y);
+        } else {
+            generatePosition();
+        }
     }
 }

@@ -27,21 +27,17 @@ public class Board extends JPanel implements KeyListener{
     public void keyPressed(KeyEvent e) {
 
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            System.out.println("up");
             snake.setDirection("up");
-            snake.move('u');
+            snake.move();
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            System.out.println("down");
             snake.setDirection("down");
-            snake.move('d');
+            snake.move();
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            System.out.println("right");
             snake.setDirection("right");
-            snake.move('r');
+            snake.move();
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            System.out.println("left");
             snake.setDirection("left");
-            snake.move('l');
+            snake.move();
         }
     }
 
@@ -58,7 +54,7 @@ public class Board extends JPanel implements KeyListener{
 
     public void appTimer () {
         timer = new Timer(1000, e -> {
-            snake.move('m');
+            snake.move();
             repaint();
         });
         timer.start();

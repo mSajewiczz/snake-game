@@ -13,20 +13,22 @@ public class Snake {
     SnakeHead snakeHead;
     SnakeSegment snakeSegment;
     private String direction = "right";
+    private int snakeHeadPositionX = 0;
+    private int snakeHeadPositionY = 0;
 
     public void startGame() {
-        snakeHead = new SnakeHead(60, 0);
+        snakeHead = new SnakeHead(80, 0);
 
         int num = 20;
 
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < 3; i++){
             snakeSegments.add(new SnakeSegment(num, 0));
             num+=20;
         }
 
         System.out.println("snakeSegments.size() = " + snakeSegments.size());
 
-        move('m');
+        move();
     }
 
     public void paintSnake(Graphics g) {
@@ -39,10 +41,7 @@ public class Snake {
         }
     }
 
-    public void move(char choice) {
-
-
-        if(choice == 'm') {
+    public void move() {
             //here is only for right
             //you need to have DEFAULT function for all dimensions
             if(direction.equals("right")) {
@@ -52,7 +51,12 @@ public class Snake {
                 }
                 snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
                 snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+
+                snakeHeadPositionX = snakeHead.getSnakeHeadX() + 20;
+
                 snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() + 20);
+                System.out.println("X: " + snakeHeadPositionX);
+                System.out.println("Y: " + snakeHeadPositionY);
             } else if(direction.equals("down")) {
                 for (int i = snakeSegments.size() - 1; i > 0; i--) {
                     snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
@@ -60,7 +64,12 @@ public class Snake {
                 }
                 snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
                 snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+
+                snakeHeadPositionY = snakeHead.getSnakeHeadY() + 20;
+
                 snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() + 20);
+                System.out.println("X: " + snakeHeadPositionX);
+                System.out.println("Y: " + snakeHeadPositionY);
             } else if(direction.equals("up")) {
                 for (int i = snakeSegments.size() - 1; i > 0; i--) {
                     snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
@@ -68,7 +77,12 @@ public class Snake {
                 }
                 snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
                 snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+
+                snakeHeadPositionY = snakeHead.getSnakeHeadY() - 20;
+
                 snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() - 20);
+                System.out.println("X: " + snakeHeadPositionX);
+                System.out.println("Y: " + snakeHeadPositionY);
             } else if(direction.equals("left")) {
                 for (int i = snakeSegments.size() - 1; i > 0; i--) {
                     snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
@@ -76,9 +90,13 @@ public class Snake {
                 }
                 snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
                 snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+
+                snakeHeadPositionX = snakeHead.getSnakeHeadX() - 20;
+
                 snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() - 20);
+                System.out.println("X: " + snakeHeadPositionX);
+                System.out.println("Y: " + snakeHeadPositionY);
             }
-        }
     }
 
     public void grow () {
