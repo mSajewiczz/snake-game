@@ -28,15 +28,19 @@ public class Board extends JPanel implements KeyListener{
 
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             System.out.println("up");
+            snake.setDirection("up");
             snake.move('u');
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             System.out.println("down");
+            snake.setDirection("down");
             snake.move('d');
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             System.out.println("right");
+            snake.setDirection("right");
             snake.move('r');
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             System.out.println("left");
+            snake.setDirection("left");
             snake.move('l');
         }
     }
