@@ -49,6 +49,7 @@ public class Snake {
                     snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
                     snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
                 }
+
                 snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
                 snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
 
@@ -58,13 +59,17 @@ public class Snake {
                 System.out.println("X: " + snakeHeadPositionX);
                 System.out.println("Y: " + snakeHeadPositionY);
             } else if(direction.equals("down")) {
-                for (int i = snakeSegments.size() - 1; i > 0; i--) {
-                    snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
-                    snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
+                for (int i = snakeSegments.size() - 1; i > -1; i--) {
+                    if(i == 0) {
+                        snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
+                        snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+                    } else {
+                        snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
+                        snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
+                    }
                 }
 
-                snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
-                snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+
 
                 snakeHeadPositionY = snakeHead.getSnakeHeadY() + 20;
 
@@ -81,8 +86,9 @@ public class Snake {
                 snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
 
                 snakeHeadPositionY = snakeHead.getSnakeHeadY() - 20;
-
                 snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() - 20);
+
+
                 System.out.println("X: " + snakeHeadPositionX);
                 System.out.println("Y: " + snakeHeadPositionY);
             } else if(direction.equals("left")) {
