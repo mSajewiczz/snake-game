@@ -42,48 +42,30 @@ public class Snake {
     }
 
     public void move() {
+
+
             //here is only for right
             //you need to have DEFAULT function for all dimensions
             if(direction.equals("right")) {
-                for (int i = snakeSegments.size() - 1; i > 0; i--) {
-                    snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
-                    snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
-                }
-
-                snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
-                snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+                moveSegments();
 
                 snakeHeadPositionX = snakeHead.getSnakeHeadX() + 20;
-
                 snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() + 20);
+
                 System.out.println("X: " + snakeHeadPositionX);
                 System.out.println("Y: " + snakeHeadPositionY);
+
             } else if(direction.equals("down")) {
-                for (int i = snakeSegments.size() - 1; i > -1; i--) {
-                    if(i == 0) {
-                        snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
-                        snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
-                    } else {
-                        snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
-                        snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
-                    }
-                }
 
-
+                moveSegments();
 
                 snakeHeadPositionY = snakeHead.getSnakeHeadY() + 20;
-
-
                 snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() + 20);
+
                 System.out.println("X: " + snakeHeadPositionX);
                 System.out.println("Y: " + snakeHeadPositionY);
             } else if(direction.equals("up")) {
-                for (int i = snakeSegments.size() - 1; i > 0; i--) {
-                    snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
-                    snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
-                }
-                snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
-                snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
+                moveSegments();
 
                 snakeHeadPositionY = snakeHead.getSnakeHeadY() - 20;
                 snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() - 20);
@@ -92,19 +74,27 @@ public class Snake {
                 System.out.println("X: " + snakeHeadPositionX);
                 System.out.println("Y: " + snakeHeadPositionY);
             } else if(direction.equals("left")) {
-                for (int i = snakeSegments.size() - 1; i > 0; i--) {
-                    snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
-                    snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
-                }
-                snakeSegments.get(0).setSnakeSegmentX(snakeHead.getSnakeHeadX());
-                snakeSegments.get(0).setSnakeSegmentY(snakeHead.getSnakeHeadY());
-
+                moveSegments();
                 snakeHeadPositionX = snakeHead.getSnakeHeadX() - 20;
 
                 snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() - 20);
                 System.out.println("X: " + snakeHeadPositionX);
                 System.out.println("Y: " + snakeHeadPositionY);
             }
+    }
+
+    public void moveSegments() {
+
+        int oldSnakeHeadPositionX = snakeHead.getSnakeHeadX();
+        int oldSnakeHeadPositionY = snakeHead.getSnakeHeadY();
+
+        //this snippet is always the same in code
+        for (int i = snakeSegments.size()-1; i > 0; i--) {
+            snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
+            snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
+        }
+        snakeSegments.get(0).setSnakeSegmentX(oldSnakeHeadPositionX);
+        snakeSegments.get(0).setSnakeSegmentY(oldSnakeHeadPositionY);
     }
 
     public void grow () {
