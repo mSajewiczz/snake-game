@@ -38,52 +38,62 @@ public class Snake {
     public void move() {
         switch (direction) {
             case "right" -> {
-                moveSegments();
+                int oldX = snakeHead.getSnakeHeadX();
+                int oldY = snakeHead.getSnakeHeadY();
 
                 snakeHeadPositionX = snakeHead.getSnakeHeadX() + 20;
                 snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() + 20);
 
+                moveSegments(oldX, oldY);
+
+
                 moveInformation();
             }
             case "down" -> {
-
-                moveSegments();
+                int oldX = snakeHead.getSnakeHeadX();
+                int oldY = snakeHead.getSnakeHeadY();
 
                 snakeHeadPositionY = snakeHead.getSnakeHeadY() + 20;
                 snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() + 20);
 
+                moveSegments(oldX, oldY);
+
                 moveInformation();
             }
             case "up" -> {
-                moveSegments();
+                int oldX = snakeHead.getSnakeHeadX();
+                int oldY = snakeHead.getSnakeHeadY();
 
                 snakeHeadPositionY = snakeHead.getSnakeHeadY() - 20;
                 snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() - 20);
 
+                moveSegments(oldX, oldY);
+
                 moveInformation();
             }
             case "left" -> {
-                moveSegments();
+                int oldX = snakeHead.getSnakeHeadX();
+                int oldY = snakeHead.getSnakeHeadY();
 
                 snakeHeadPositionX = snakeHead.getSnakeHeadX() - 20;
                 snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() - 20);
+
+                moveSegments(oldX, oldY);
 
                 moveInformation();
             }
         }
     }
 
-    public void moveSegments() {
-        int oldSnakeHeadPositionX = snakeHead.getSnakeHeadX();
-        int oldSnakeHeadPositionY = snakeHead.getSnakeHeadY();
+    public void moveSegments(int oldX, int oldY) {
 
         //this snippet is always the same in code!
         for (int i = snakeSegments.size()-1; i > 0; i--) {
             snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
             snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
         }
-        snakeSegments.get(0).setSnakeSegmentX(oldSnakeHeadPositionX);
-        snakeSegments.get(0).setSnakeSegmentY(oldSnakeHeadPositionY);
+        snakeSegments.get(0).setSnakeSegmentX(oldX);
+        snakeSegments.get(0).setSnakeSegmentY(oldY);
     }
 
     public void moveInformation() {
