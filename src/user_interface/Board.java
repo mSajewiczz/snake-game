@@ -51,7 +51,6 @@ public class Board extends JPanel implements KeyListener{
 
     }
 
-
     public void appTimer () {
         timer = new Timer(800, e -> {
             snake.move();
@@ -64,20 +63,13 @@ public class Board extends JPanel implements KeyListener{
         timer.start();
     }
 
-
-
     Food food = new Food();
     Snake snake = new Snake();
 
-    //here you're using your custom food.paintFood() method from food class, that's drawing food object (not only for food)
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         food.paintFood(g);
         snake.paintSnake(g);
     }
-
-
-    //board is listening for a click of arrow from keyboard -> then invoke the function of move() that is in snake class
-
 }
