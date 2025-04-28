@@ -14,6 +14,10 @@ public class Snake {
     private int snakeHeadPositionX = 0;
     private int snakeHeadPositionY = 0;
 
+    public String getDirection() {
+        return direction;
+    }
+
     public void startGame() {
         snakeHead = new SnakeHead(60, 0);
         int num = 0;
@@ -35,53 +39,41 @@ public class Snake {
         }
     }
 
+    private char option = 'r';
+
     public void move() {
-        switch (direction) {
-            case "right" -> {
-                int oldX = snakeHead.getSnakeHeadX();
-                int oldY = snakeHead.getSnakeHeadY();
-
-                snakeHeadPositionX = snakeHead.getSnakeHeadX() + 20;
-                snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() + 20);
-
-                moveSegments(oldX, oldY);
+        int oldX = snakeHead.getSnakeHeadX();
+        int oldY = snakeHead.getSnakeHeadY();
 
 
-                moveInformation();
-            }
-            case "down" -> {
-                int oldX = snakeHead.getSnakeHeadX();
-                int oldY = snakeHead.getSnakeHeadY();
+        if (direction.equals("right") && option != 'l') {
+            option = 'r';
+            snakeHeadPositionX = snakeHead.getSnakeHeadX() + 20;
+            snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() + 20);
 
-                snakeHeadPositionY = snakeHead.getSnakeHeadY() + 20;
-                snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() + 20);
+            moveSegments(oldX, oldY);
+            moveInformation();
+        } else if (direction.equals("left") && option != 'r') {
+            option = 'l';
+            snakeHeadPositionX = snakeHead.getSnakeHeadX() - 20;
+            snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() - 20);
 
-                moveSegments(oldX, oldY);
+            moveSegments(oldX, oldY);
+            moveInformation();
+        } else if (direction.equals("down") && option != 'u') {
+            option = 'd';
+            snakeHeadPositionY = snakeHead.getSnakeHeadY() + 20;
+            snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() + 20);
 
-                moveInformation();
-            }
-            case "up" -> {
-                int oldX = snakeHead.getSnakeHeadX();
-                int oldY = snakeHead.getSnakeHeadY();
+            moveSegments(oldX, oldY);
+            moveInformation();
+        } else if (direction.equals("up") && option != 'd') {
+            option = 'u';
+            snakeHeadPositionY = snakeHead.getSnakeHeadY() - 20;
+            snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() - 20);
 
-                snakeHeadPositionY = snakeHead.getSnakeHeadY() - 20;
-                snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() - 20);
-
-                moveSegments(oldX, oldY);
-
-                moveInformation();
-            }
-            case "left" -> {
-                int oldX = snakeHead.getSnakeHeadX();
-                int oldY = snakeHead.getSnakeHeadY();
-
-                snakeHeadPositionX = snakeHead.getSnakeHeadX() - 20;
-                snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() - 20);
-
-                moveSegments(oldX, oldY);
-
-                moveInformation();
-            }
+            moveSegments(oldX, oldY);
+            moveInformation();
         }
     }
 
