@@ -32,7 +32,11 @@ Move the snake, eat the food, grow longer, and try not to crash into walls or yo
 - Java Swing for GUI
 - IDE: IntelliJ IDEA
 
+## 🖼️ Preview
 
+![Start Screen](assets/start_game_view.png)
+![Game Board](assets/game.png)
+![Game Over Screen](assets/game-over-screen.png)
 
 ## 📦 How to Run
 
