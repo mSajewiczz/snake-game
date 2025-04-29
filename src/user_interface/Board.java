@@ -11,6 +11,7 @@ import java.awt.event.KeyListener;
 
 public class Board extends JPanel implements KeyListener{
 
+    private int points = 0;
     private Timer timer;
 
     public Board() {
@@ -21,6 +22,11 @@ public class Board extends JPanel implements KeyListener{
         appTimer();
         setFocusable(true);
         addKeyListener(this);
+    }
+
+    private int score() {
+        points++;
+        return points;
     }
 
     @Override
@@ -72,9 +78,11 @@ public class Board extends JPanel implements KeyListener{
         timer = new Timer(100, e -> {
             snake.move();
 
-            if(snake.getSnakeHeadPositionX() == food.getX() && snake.getSnakeHeadPositionY() == food.getY()) {
+            if((snake.getSnakeHeadPositionX() == food.getX() || snake.snakeSegments.get(0).getSnakeSegmentX() == food.getX()) && (snake.getSnakeHeadPositionY() == food.getY() || snake.snakeSegments.get(0).getSnakeSegmentY() == food.getY())) {
                 snake.grow();
 
+
+                System.out.println("Points:  " + score());
             }
             repaint();
         });
