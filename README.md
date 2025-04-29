@@ -30,8 +30,7 @@ Move the snake, eat the food, grow longer, and try not to crash into walls or yo
 ## 🛠️ Built With
 - Java (17+ recommended)
 - Java Swing for GUI
-- Maven (optional for dependency management)
-- IDE: IntelliJ IDEA, Eclipse, or VS Code
+- IDE: IntelliJ IDEA
 
 
 
