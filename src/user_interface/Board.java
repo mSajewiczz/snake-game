@@ -17,6 +17,8 @@ public class Board extends JPanel implements KeyListener{
     JLabel scoreCounter;
     String userNickName;
     private int score = 0;
+    private boolean crash = false;
+    private String reason = "you're out of the map!";
 
     public Board(String userNickName) {
 
@@ -29,7 +31,6 @@ public class Board extends JPanel implements KeyListener{
         System.out.println(score);
         add(scoreCounter);
 
-        //constructor that's responsible only for displaying the board JPanel
         setPreferredSize(new Dimension(600, 600));
         setBackground(Color.lightGray);
         snake.startGame();
@@ -38,28 +39,16 @@ public class Board extends JPanel implements KeyListener{
         addKeyListener(this);
     }
 
-
-
     @Override
     public void keyPressed(KeyEvent e) {
-
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-
-            if(!snake.getDirection().equals("down")) {
-                snake.setDirection("up");
-            }
-        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            if(!snake.getDirection().equals("up")) {
-                snake.setDirection("down");
-            }
-        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            if(!snake.getDirection().equals("left")) {
-                snake.setDirection("right");
-            }
-        } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            if(!snake.getDirection().equals("right")) {
-                snake.setDirection("left");
-            }
+        if (e.getKeyCode() == KeyEvent.VK_UP && !snake.getDirection().equals("down")) {
+            snake.setDirection("up");
+        } else if (e.getKeyCode() == KeyEvent.VK_DOWN && !snake.getDirection().equals("up")) {
+            snake.setDirection("down");
+        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && !snake.getDirection().equals("left")) {
+            snake.setDirection("right");
+        } else if (e.getKeyCode() == KeyEvent.VK_LEFT && !snake.getDirection().equals("right")) {
+            snake.setDirection("left");
         }
     }
 
@@ -73,6 +62,16 @@ public class Board extends JPanel implements KeyListener{
 
     }
 
+    public void isCrash() {
+        for(int i = 0; i < snake.snakeSegments.size(); i++) {
+            if((snake.snakeHead.getSnakeHeadX() == snake.snakeSegments.get(i).getSnakeSegmentX()) &&
+                    (snake.snakeHead.getSnakeHeadY() == snake.snakeSegments.get(i).getSnakeSegmentY())) {
+                crash = true;
+                reason = "you have collided with a part of the snake's body!";
+            }
+        }
+    }
+
     public void appTimer () {
         timer = new Timer(100, e -> {
             snake.move();
@@ -82,11 +81,15 @@ public class Board extends JPanel implements KeyListener{
                 snake.grow();
                 score+=1;
                 scoreCounter.setText("Current score: " + score);
-                System.out.println(score);
             }
 
-            if((snake.getSnakeHeadPositionX() < 0 || snake.getSnakeHeadPositionX() > 600) || snake.getSnakeHeadPositionY() < 0 || snake.getSnakeHeadPositionY() > 600) {
-                new GameOverWindow(score, userNickName);
+            isCrash();
+
+            if((snake.getSnakeHeadPositionX() < 0 ||
+                    snake.getSnakeHeadPositionX() > 600) || (snake.getSnakeHeadPositionY() < 0 || snake.getSnakeHeadPositionY() > 600) || crash) {
+
+
+                new GameOverWindow(score, userNickName, reason);
                 timer.stop();
             }
             repaint();
