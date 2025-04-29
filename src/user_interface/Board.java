@@ -1,7 +1,9 @@
 package user_interface;
 
+import logic.GameOverWindow;
 import logic.SnakeHead;
 import logic.SnakeSegment;
+import logic.Window;
 
 import javax.swing.*;
 import java.awt.*;
@@ -89,11 +91,17 @@ public class Board extends JPanel implements KeyListener{
                 scoreCounter.setFont(new Font("Arial", Font.BOLD, 24));
                 scoreCounter.setPreferredSize(new Dimension(600, 50));
 
-                add(scoreCounter);
 
                 System.out.println(score);
+                add(scoreCounter);
+            }
+
+            if((snake.getSnakeHeadPositionX() < 0 || snake.getSnakeHeadPositionX() > 600) || snake.getSnakeHeadPositionY() < 0 || snake.getSnakeHeadPositionY() > 600) {
+                new GameOverWindow();
+                timer.stop();
             }
             repaint();
+
         });
         timer.start();
     }
