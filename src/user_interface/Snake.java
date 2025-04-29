@@ -92,16 +92,13 @@ public class Snake {
     public void moveInformation() {
 
         //here is an issue that you have to check!!!!
-        System.out.println("X: " + snakeHeadPositionX);
-        System.out.println("Y: " + snakeHeadPositionY);
+//        System.out.println("X: " + snakeHeadPositionX);
+//        System.out.println("Y: " + snakeHeadPositionY);
     }
 
     public void grow () {
         Food.generatePosition();
-
-            snakeSegments.add(new SnakeSegment(snakeSegments.get(snakeSegments.size()-1).getSnakeSegmentX(), snakeSegments.get(snakeSegments.size()-1).getSnakeSegmentY()));
-
-//        System.out.println("TEST: " + snakeSegments.get(snakeSegments.size()-1).getSnakeSegmentX());
+        snakeSegments.add(new SnakeSegment(snakeSegments.get(snakeSegments.size()-1).getSnakeSegmentX(), snakeSegments.get(snakeSegments.size()-1).getSnakeSegmentY()));
     }
 
     public void setDirection(String direction) {
@@ -112,15 +109,9 @@ public class Snake {
         return snakeHeadPositionX;
     }
 
-    public void setSnakeHeadPositionX(int snakeHeadPositionX) {
-        this.snakeHeadPositionX = snakeHeadPositionX;
-    }
 
     public int getSnakeHeadPositionY() {
         return snakeHeadPositionY;
     }
 
-    public void setSnakeHeadPositionY(int snakeHeadPositionY) {
-        this.snakeHeadPositionY = snakeHeadPositionY;
-    }
 }

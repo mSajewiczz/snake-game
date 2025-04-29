@@ -10,11 +10,16 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Board extends JPanel implements KeyListener{
-
-    private int points = 0;
     private Timer timer;
 
+
+    private int score = 0;
+
+
     public Board() {
+
+
+
         //constructor that's responsible only for displaying the board JPanel
         setPreferredSize(new Dimension(600, 600));
         setBackground(Color.lightGray);
@@ -24,10 +29,7 @@ public class Board extends JPanel implements KeyListener{
         addKeyListener(this);
     }
 
-    private int score() {
-        points++;
-        return points;
-    }
+
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -78,11 +80,18 @@ public class Board extends JPanel implements KeyListener{
         timer = new Timer(100, e -> {
             snake.move();
 
-            if((snake.getSnakeHeadPositionX() == food.getX() || snake.snakeSegments.get(0).getSnakeSegmentX() == food.getX()) && (snake.getSnakeHeadPositionY() == food.getY() || snake.snakeSegments.get(0).getSnakeSegmentY() == food.getY())) {
+            if((snake.getSnakeHeadPositionX() == food.getX() || snake.snakeSegments.get(0).getSnakeSegmentX() == food.getX()) &&
+                    (snake.getSnakeHeadPositionY() == food.getY() || snake.snakeSegments.get(0).getSnakeSegmentY() == food.getY())) {
                 snake.grow();
+                score+=1;
 
+                JLabel scoreCounter = new JLabel("Score: " + score, SwingConstants.CENTER);
+                scoreCounter.setFont(new Font("Arial", Font.BOLD, 24));
+                scoreCounter.setPreferredSize(new Dimension(600, 50));
 
-                System.out.println("Points:  " + score());
+                add(scoreCounter);
+
+                System.out.println(score);
             }
             repaint();
         });
@@ -99,4 +108,7 @@ public class Board extends JPanel implements KeyListener{
         snake.paintSnake(g);
     }
 
+    public int getScore() {
+        return score;
+    }
 }
