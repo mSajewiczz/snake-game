@@ -1,4 +1,6 @@
-# 🐍 Snake Game - Java Swing
+# 🐍 Snake Game - Java Swing 
+
+My first game and app in java :D
 
 A simple but classic **Snake Game**, built using **Java Swing**.  
 Move the snake, eat the food, grow longer, and try not to crash into walls or yourself!
