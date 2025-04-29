@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameOverWindow extends JFrame {
-    public GameOverWindow() {
+    public GameOverWindow(int score) {
         setPreferredSize(new Dimension(600, 600));
         setBackground(Color.lightGray);
         setFocusable(true);
@@ -14,7 +14,7 @@ public class GameOverWindow extends JFrame {
         title.setPreferredSize(new Dimension(600, 50));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JLabel gameScore = new JLabel("Your score: ");
+        JLabel gameScore = new JLabel("Your score: " + score);
         gameScore.setFont(new Font("Arial", Font.BOLD, 20));
         gameScore.setPreferredSize(new Dimension(600, 50));
         gameScore.setAlignmentX(Component.CENTER_ALIGNMENT);

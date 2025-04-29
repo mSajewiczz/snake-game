@@ -13,14 +13,20 @@ import java.awt.event.KeyListener;
 
 public class Board extends JPanel implements KeyListener{
     private Timer timer;
-
+    JLabel scoreCounter;
 
     private int score = 0;
 
 
     public Board() {
 
+        scoreCounter = new JLabel("Score: " + score, SwingConstants.CENTER);
+        scoreCounter.setFont(new Font("Arial", Font.BOLD, 24));
+        scoreCounter.setPreferredSize(new Dimension(600, 50));
 
+
+        System.out.println(score);
+        add(scoreCounter);
 
         //constructor that's responsible only for displaying the board JPanel
         setPreferredSize(new Dimension(600, 600));
@@ -40,30 +46,18 @@ public class Board extends JPanel implements KeyListener{
 
             if(!snake.getDirection().equals("down")) {
                 snake.setDirection("up");
-                snake.move();
-            } else {
-                snake.move();
             }
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             if(!snake.getDirection().equals("up")) {
                 snake.setDirection("down");
-                snake.move();
-            } else {
-                snake.move();
             }
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             if(!snake.getDirection().equals("left")) {
                 snake.setDirection("right");
-                snake.move();
-            } else {
-                snake.move();
             }
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             if(!snake.getDirection().equals("right")) {
                 snake.setDirection("left");
-                snake.move();
-            } else {
-                snake.move();
             }
         }
     }
@@ -87,17 +81,15 @@ public class Board extends JPanel implements KeyListener{
                 snake.grow();
                 score+=1;
 
-                JLabel scoreCounter = new JLabel("Score: " + score, SwingConstants.CENTER);
-                scoreCounter.setFont(new Font("Arial", Font.BOLD, 24));
-                scoreCounter.setPreferredSize(new Dimension(600, 50));
+                scoreCounter.setText("Score: " + score);
 
 
                 System.out.println(score);
-                add(scoreCounter);
+
             }
 
             if((snake.getSnakeHeadPositionX() < 0 || snake.getSnakeHeadPositionX() > 600) || snake.getSnakeHeadPositionY() < 0 || snake.getSnakeHeadPositionY() > 600) {
-                new GameOverWindow();
+                new GameOverWindow(score);
                 timer.stop();
             }
             repaint();

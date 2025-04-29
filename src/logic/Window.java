@@ -21,14 +21,11 @@ public class Window extends JFrame {
 
         Board board = new Board();
 
-        JLabel scoreCounter = new JLabel("Score: " + board.getScore(), SwingConstants.CENTER);
-        scoreCounter.setFont(new Font("Arial", Font.BOLD, 24));
-        scoreCounter.setPreferredSize(new Dimension(600, 50));
+
 
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
 //        add(title);
-        add(scoreCounter);
         add(board);
 
         pack();
