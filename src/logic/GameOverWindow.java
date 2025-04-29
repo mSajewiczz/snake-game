@@ -23,6 +23,7 @@ public class GameOverWindow extends JFrame {
         reasonField.setFont(new Font("Arial", Font.BOLD, 20));
         reasonField.setPreferredSize(new Dimension(600, 50));
         reasonField.setAlignmentX(Component.CENTER_ALIGNMENT);
+        reasonField.setForeground(Color.red);
 
         setPreferredSize(new Dimension(600, 600));
         getContentPane().setBackground(Color.LIGHT_GRAY);

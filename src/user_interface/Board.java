@@ -72,6 +72,7 @@ public class Board extends JPanel implements KeyListener{
         }
     }
 
+
     public void appTimer () {
         timer = new Timer(100, e -> {
             snake.move();
@@ -88,9 +89,10 @@ public class Board extends JPanel implements KeyListener{
             if((snake.getSnakeHeadPositionX() < 0 ||
                     snake.getSnakeHeadPositionX() > 600) || (snake.getSnakeHeadPositionY() < 0 || snake.getSnakeHeadPositionY() > 600) || crash) {
 
-
                 new GameOverWindow(score, userNickName, reason);
                 timer.stop();
+                setVisible(false);
+
             }
             repaint();
 

@@ -66,6 +66,7 @@ public class StartGameWindow extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(userNameField.getText() == null || userNameField.getText().equals("")) {
                     errorMessage.setText("Please enter your nickname!");
+                    errorMessage.setForeground(Color.red);
                 }else {
                     new Window(userNameField.getText());
                     errorMessage.setText("");

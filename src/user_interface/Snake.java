@@ -27,8 +27,6 @@ public class Snake {
             snakeSegments.add(new SnakeSegment(num, 0));
             num-=20;
         }
-
-        System.out.println("snakeSegments.size() = " + snakeSegments.size());
         move();
     }
 
