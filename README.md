@@ -11,8 +11,6 @@ Move the snake, eat the food, grow longer, and try not to crash into walls or yo
 - Score counter displayed live
 - Game Over screen when you crash
 - Start screen with nickname input
-- Clean, lightweight UI design with simple colors
-- Modular code: easy to expand (e.g., new food types, speeds)
 
 
 
@@ -51,6 +49,3 @@ Move the snake, eat the food, grow longer, and try not to crash into walls or yo
 ## 🧑‍💻 Author
 - **msajewiczz** 
 - [GitHub Profile](https://github.com/mSajewiczz)
-
-
-# 🐍 Enjoy playing Snake again!
