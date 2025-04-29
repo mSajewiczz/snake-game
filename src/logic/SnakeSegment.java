@@ -14,7 +14,8 @@ public class SnakeSegment {
 
     protected void paintSnakeSegment(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.BLACK);
+        Color darkGreen = new Color(0, 100, 0);
+        g2.setColor(darkGreen);
         g2.fillRect(this.snakeSegmentX, this.snakeSegmentY, 20, 20);
     }
 

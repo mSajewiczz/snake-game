@@ -16,7 +16,7 @@ public class Board extends JPanel implements KeyListener{
     public Board() {
         //constructor that's responsible only for displaying the board JPanel
         setPreferredSize(new Dimension(600, 600));
-        setBackground(Color.RED);
+        setBackground(Color.lightGray);
         snake.startGame();
         appTimer();
         setFocusable(true);

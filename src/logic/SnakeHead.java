@@ -14,7 +14,8 @@ public class SnakeHead {
 
     protected void paintSnakeHead(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.BLUE);
+        Color lightGreen = new Color(80, 160, 3);
+        g2.setColor(lightGreen);
         g2.fillRect(this.snakeHeadX, this.snakeHeadY, 20, 20);
     }
 
