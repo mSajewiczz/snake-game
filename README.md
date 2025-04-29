@@ -47,16 +47,6 @@ Move the snake, eat the food, grow longer, and try not to crash into walls or yo
 ### 3.  Compile and run:
 - javac src/**/*.java java logic.StartGameWindow
 
-✅ Or just open the project in **IntelliJ IDEA**, and run `StartGameWindow.java`.
-
-
-
-## 💬 Future Improvements
-- Add different game speeds
-- Add obstacles or power-ups
-- Save high scores across sessions
-- Improve animations for smoother movement
-
 
 ## 🧑‍💻 Author
 - **msajewiczz** 
