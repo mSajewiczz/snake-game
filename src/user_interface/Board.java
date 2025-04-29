@@ -12,13 +12,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Board extends JPanel implements KeyListener{
+
     private Timer timer;
     JLabel scoreCounter;
-
     String userNickName;
-
     private int score = 0;
-
 
     public Board(String userNickName) {
 
@@ -83,12 +81,8 @@ public class Board extends JPanel implements KeyListener{
                     (snake.getSnakeHeadPositionY() == food.getY() || snake.snakeSegments.get(0).getSnakeSegmentY() == food.getY())) {
                 snake.grow();
                 score+=1;
-
                 scoreCounter.setText("Current score: " + score);
-
-
                 System.out.println(score);
-
             }
 
             if((snake.getSnakeHeadPositionX() < 0 || snake.getSnakeHeadPositionX() > 600) || snake.getSnakeHeadPositionY() < 0 || snake.getSnakeHeadPositionY() > 600) {
@@ -109,9 +103,5 @@ public class Board extends JPanel implements KeyListener{
         super.paintComponent(g);
         food.paintFood(g);
         snake.paintSnake(g);
-    }
-
-    public int getScore() {
-        return score;
     }
 }

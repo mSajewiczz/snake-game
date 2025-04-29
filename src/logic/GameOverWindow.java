@@ -34,6 +34,4 @@ public class GameOverWindow extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
-
-
 }

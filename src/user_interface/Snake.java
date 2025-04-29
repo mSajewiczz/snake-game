@@ -13,6 +13,7 @@ public class Snake {
     private String direction = "right";
     private int snakeHeadPositionX = 0;
     private int snakeHeadPositionY = 0;
+    private char option = 'r';
 
     public String getDirection() {
         return direction;
@@ -39,61 +40,44 @@ public class Snake {
         }
     }
 
-    private char option = 'r';
-
     public void move() {
         int oldX = snakeHead.getSnakeHeadX();
         int oldY = snakeHead.getSnakeHeadY();
-
 
         if (direction.equals("right") && option != 'l') {
             option = 'r';
             snakeHeadPositionX = snakeHead.getSnakeHeadX() + 20;
             snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() + 20);
 
-
             moveSegments(oldX, oldY);
-            moveInformation();
         } else if (direction.equals("left") && option != 'r') {
             option = 'l';
             snakeHeadPositionX = snakeHead.getSnakeHeadX() - 20;
             snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() - 20);
 
             moveSegments(oldX, oldY);
-            moveInformation();
         } else if (direction.equals("down") && option != 'u') {
             option = 'd';
             snakeHeadPositionY = snakeHead.getSnakeHeadY() + 20;
             snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() + 20);
 
             moveSegments(oldX, oldY);
-            moveInformation();
         } else if (direction.equals("up") && option != 'd') {
             option = 'u';
             snakeHeadPositionY = snakeHead.getSnakeHeadY() - 20;
             snakeHead.setSnakeHeadY(snakeHead.getSnakeHeadY() - 20);
 
             moveSegments(oldX, oldY);
-            moveInformation();
         }
     }
 
     public void moveSegments(int oldX, int oldY) {
-
-        //this snippet is always the same in code!
         for (int i = snakeSegments.size()-1; i > 0; i--) {
             snakeSegments.get(i).setSnakeSegmentX(snakeSegments.get(i - 1).getSnakeSegmentX());
             snakeSegments.get(i).setSnakeSegmentY(snakeSegments.get(i - 1).getSnakeSegmentY());
         }
         snakeSegments.get(0).setSnakeSegmentX(oldX);
         snakeSegments.get(0).setSnakeSegmentY(oldY);
-    }
-
-    public void moveInformation() {
-
-        //here is an issue that you have to check!!!!
-//        System.out.println("X: " + snakeHeadPositionX);
-//        System.out.println("Y: " + snakeHeadPositionY);
     }
 
     public void grow () {
@@ -108,7 +92,6 @@ public class Snake {
     public int getSnakeHeadPositionX() {
         return snakeHeadPositionX;
     }
-
 
     public int getSnakeHeadPositionY() {
         return snakeHeadPositionY;

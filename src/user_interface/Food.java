@@ -13,20 +13,13 @@ public class Food {
         generatePosition();
     }
 
-
-
     public static void generatePosition() {
-//        x = (int)(Math.random() * 601);
-//        y = (int)(Math.random() * 601);
-
         x = array[(int)(Math.random() * 30)];
         y = array[(int)(Math.random() * 30)];
 
     };
-
     protected void paintFood(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        //you need to generate number between 0 and 600
         Color darkRed = new Color(100, 0, 0);
         g2.setColor(darkRed);
         g2.fillOval(x, y, 20, 20);
