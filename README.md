@@ -3,7 +3,7 @@
 A simple but classic **Snake Game**, built using **Java Swing**.  
 Move the snake, eat the food, grow longer, and try not to crash into walls or yourself!
 
----
+
 
 ## 🚀 Features
 - Classic Snake gameplay
@@ -14,7 +14,7 @@ Move the snake, eat the food, grow longer, and try not to crash into walls or yo
 - Clean, lightweight UI design with simple colors
 - Modular code: easy to expand (e.g., new food types, speeds)
 
----
+
 
 ## 🎮 Controls
 
@@ -25,7 +25,7 @@ Move the snake, eat the food, grow longer, and try not to crash into walls or yo
 | ⬅️ Left Arrow | Move Left   |
 | ➡️ Right Arrow| Move Right  |
 
----
+
 
 ## 🛠️ Built With
 - Java (17+ recommended)
@@ -33,7 +33,7 @@ Move the snake, eat the food, grow longer, and try not to crash into walls or yo
 - Maven (optional for dependency management)
 - IDE: IntelliJ IDEA, Eclipse, or VS Code
 
----
+
 
 ## 📦 How to Run
 
@@ -46,7 +46,7 @@ Move the snake, eat the food, grow longer, and try not to crash into walls or yo
 
 ✅ Or just open the project in **IntelliJ IDEA**, and run `StartGameWindow.java`.
 
----
+
 
 ## 💬 Future Improvements
 - Add different game speeds
@@ -54,7 +54,6 @@ Move the snake, eat the food, grow longer, and try not to crash into walls or yo
 - Save high scores across sessions
 - Improve animations for smoother movement
 
----
 
 ## 🧑‍💻 Author
 - **msajewiczz** 
