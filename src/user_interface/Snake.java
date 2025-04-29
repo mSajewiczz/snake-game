@@ -19,12 +19,12 @@ public class Snake {
     }
 
     public void startGame() {
-        snakeHead = new SnakeHead(60, 0);
+        snakeHead = new SnakeHead(20, 0);
         int num = 0;
 
         for(int i = 0; i < 3; i++){
             snakeSegments.add(new SnakeSegment(num, 0));
-            num+=20;
+            num-=20;
         }
 
         System.out.println("snakeSegments.size() = " + snakeSegments.size());
@@ -50,6 +50,7 @@ public class Snake {
             option = 'r';
             snakeHeadPositionX = snakeHead.getSnakeHeadX() + 20;
             snakeHead.setSnakeHeadX(snakeHead.getSnakeHeadX() + 20);
+
 
             moveSegments(oldX, oldY);
             moveInformation();
@@ -89,12 +90,18 @@ public class Snake {
     }
 
     public void moveInformation() {
+
+        //here is an issue that you have to check!!!!
         System.out.println("X: " + snakeHeadPositionX);
         System.out.println("Y: " + snakeHeadPositionY);
     }
 
     public void grow () {
+        Food.generatePosition();
 
+            snakeSegments.add(new SnakeSegment(snakeSegments.get(snakeSegments.size()-1).getSnakeSegmentX(), snakeSegments.get(snakeSegments.size()-1).getSnakeSegmentY()));
+
+//        System.out.println("TEST: " + snakeSegments.get(snakeSegments.size()-1).getSnakeSegmentX());
     }
 
     public void setDirection(String direction) {

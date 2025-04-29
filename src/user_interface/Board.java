@@ -69,10 +69,11 @@ public class Board extends JPanel implements KeyListener{
     }
 
     public void appTimer () {
-        timer = new Timer(800, e -> {
+        timer = new Timer(100, e -> {
             snake.move();
 
             if(snake.getSnakeHeadPositionX() == food.getX() && snake.getSnakeHeadPositionY() == food.getY()) {
+                snake.grow();
 
             }
             repaint();
@@ -89,4 +90,5 @@ public class Board extends JPanel implements KeyListener{
         food.paintFood(g);
         snake.paintSnake(g);
     }
+
 }
