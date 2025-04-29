@@ -15,15 +15,18 @@ public class Board extends JPanel implements KeyListener{
     private Timer timer;
     JLabel scoreCounter;
 
+    String userNickName;
+
     private int score = 0;
 
 
-    public Board() {
+    public Board(String userNickName) {
 
-        scoreCounter = new JLabel("Score: " + score, SwingConstants.CENTER);
+        scoreCounter = new JLabel("Current score: " + score, SwingConstants.CENTER);
         scoreCounter.setFont(new Font("Arial", Font.BOLD, 24));
         scoreCounter.setPreferredSize(new Dimension(600, 50));
 
+        this.userNickName = userNickName;
 
         System.out.println(score);
         add(scoreCounter);
@@ -81,7 +84,7 @@ public class Board extends JPanel implements KeyListener{
                 snake.grow();
                 score+=1;
 
-                scoreCounter.setText("Score: " + score);
+                scoreCounter.setText("Current score: " + score);
 
 
                 System.out.println(score);
@@ -89,7 +92,7 @@ public class Board extends JPanel implements KeyListener{
             }
 
             if((snake.getSnakeHeadPositionX() < 0 || snake.getSnakeHeadPositionX() > 600) || snake.getSnakeHeadPositionY() < 0 || snake.getSnakeHeadPositionY() > 600) {
-                new GameOverWindow(score);
+                new GameOverWindow(score, userNickName);
                 timer.stop();
             }
             repaint();

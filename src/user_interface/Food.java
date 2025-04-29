@@ -29,11 +29,7 @@ public class Food {
         //you need to generate number between 0 and 600
         Color darkRed = new Color(100, 0, 0);
         g2.setColor(darkRed);
-
-            g2.fillOval(x, y, 20, 20);
-//            System.out.println("FOOD x: " + x + ", FOOD y: " + y);
-            //if you had not an idea, you could create array from 0 to 600, by adding 20 and then get random indexes of X array and Y array or together and so on (so stupid)
-
+        g2.fillOval(x, y, 20, 20);
     }
 
     public static int getX() {
